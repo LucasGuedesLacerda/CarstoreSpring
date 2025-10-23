@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS car (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  color VARCHAR(255),
+  image VARCHAR(1000),
+  price DECIMAL(10,2),
+  description TEXT
+);

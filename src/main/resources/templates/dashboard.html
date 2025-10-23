@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container mt-4">
+    <div th:replace="fragments :: navbar"></div>
+
+    <h1 class="mb-4">Dashboard de Carros</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Cor</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.name}"></td>
+            <td th:text="${car.color}"></td>
+            <td>
+                <a th:href="@{/cars/edit/{id}(id=${car.id})}" class="btn btn-sm btn-warning">Editar</a>
+                <form th:action="@{/cars/delete/{id}(id=${car.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-danger">Deletar</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form th:action="@{/}" method="get">
+        <button type="submit" class="btn btn-secondary">Novo Carro</button>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

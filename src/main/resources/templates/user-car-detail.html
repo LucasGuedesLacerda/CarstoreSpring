@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Carro</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <style>
+        .car-image{object-fit:cover;max-height:340px}
+    </style>
+</head>
+<body>
+<div class="container mt-4" th:if="${car != null}">
+    <a class="btn btn-link mb-3" th:href="@{/user/cars}">← Voltar para a loja</a>
+
+    <div class="row g-4">
+        <div class="col-12 col-lg-6">
+            <img th:if="${car.image != null}" th:src="${car.image}" class="img-fluid car-image" alt="Imagem do carro" />
+            <div th:unless="${car.image != null}" class="bg-light d-flex align-items-center justify-content-center" style="height:340px;border:1px solid #ddd;">
+                <span class="text-muted">Sem imagem</span>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <h2 th:text="${car.name}">Nome do Carro</h2>
+            <p class="mb-2"><strong>Cor:</strong> <span th:text="${car.color}">Cor</span></p>
+            <p class="mb-2">
+                <strong>Preço:</strong>
+                <span th:if="${car.price != null}">R$ <span th:text="${#numbers.formatDecimal(car.price, 0, 'POINT', 2, 'COMMA')}">0,00</span></span>
+                <span th:unless="${car.price != null}">-</span>
+            </p>
+            <p><strong>Descrição:</strong></p>
+            <p th:text="${car.description}">Descrição do carro</p>
+
+            <div class="mt-4">
+                <a class="btn btn-primary" th:href="@{/user/cars}">Comprar</a>
+                <a class="btn btn-outline-secondary" th:href="@{/user/cars}">Voltar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

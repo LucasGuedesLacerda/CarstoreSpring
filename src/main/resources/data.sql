@@ -1,0 +1,4 @@
+INSERT INTO car (name, color, image, price, description) VALUES
+('Fusca', 'Azul', 'https://www.picellileiloes.com.br/arquivos/leiloes/lotes/imagens/063f163b4af9a0.jpg', 35000.00, 'Clássico, restaurado, ótimo estado'),
+('Gol', 'Preto', 'https://image1.mobiauto.com.br/images/api/images/v1.0/82528055/transform/fl_progressive,f_webp,q_85,w_1366', 42000.00, 'Econômico, ideal para cidade'),
+('Onix', 'Branco', 'https://www.chevroletuveljaraguadosul.com.br/content/dam/chevrolet/sa/br/pt/master/home/cars/onix/onix-2026/colorizer/onix-rs/onix-rs-2026-cor-branco-summit.jpg?imwidth=2400', 68000.00, 'Completo, baixa quilometragem');
